@@ -33,8 +33,8 @@ This HTML Diff implementation is a Java port of the C# implementation found here
   <inceptionYear>2011</inceptionYear>
     <licenses>
       <license>
-         <name>The Apache Software License, Version 2.0</name>
-         <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+         <name>The MIT License (MIT)</name>
+         <url>http://www.opensource.org/licenses/mit-license.php</url>
          <distribution>repo</distribution>
          <comments>
             This product includes software developed by Adam Gent (http://www.adamgent.com).
