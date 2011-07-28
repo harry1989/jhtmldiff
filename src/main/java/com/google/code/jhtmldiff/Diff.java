@@ -56,7 +56,7 @@ public class Diff {
 	 * Diffs
 	 * @return diff, not null.
 	 */
-	public String Build() {
+	public String build() {
 		this.SplitInputsToWords();
 
 		this.IndexNewWords();
@@ -90,7 +90,7 @@ public class Diff {
 		this.newWords = ConvertHtmlToListOfWords(this.Explode(this.newText));
 	}
 
-	public static boolean contains(Object[] os, Object o) {
+	static boolean contains(Object[] os, Object o) {
 		for (int i = 0; i < os.length; i++) {
 			Object oi = os[i];
 			if (o.equals(oi))
@@ -99,7 +99,7 @@ public class Diff {
 		return false;
 	}
 	
-	public static String join(String[] sa, String space) {
+	static String join(String[] sa, String space) {
 		StringBuilder sb = new StringBuilder();
 		boolean skip = true;
 		for (String s : sa) {
@@ -110,7 +110,7 @@ public class Diff {
 		return sb.toString();
 	}
 	
-	public static String join(List<String> sa, String space) {
+	static String join(List<String> sa, String space) {
 		StringBuilder sb = new StringBuilder();
 		boolean skip = true;
 		for (String s : sa) {
@@ -569,17 +569,17 @@ public class Diff {
 		return bestMatchSize != 0 ? new Match(bestMatchInOld, bestMatchInNew, bestMatchSize) : null;
 	}
 
-	public interface Func<F, T> {
+	interface Func<F, T> {
 
 		T apply(F input);
 	}
 
-	public interface Func2<F, G, T> {
+	interface Func2<F, G, T> {
 
 		T apply(F f, G g);
 	}
 
-	public class Match {
+	class Match {
 
 		public int StartInOld;
 		public int StartInNew;
@@ -600,7 +600,7 @@ public class Diff {
 		}
 	}
 
-	public class Operation {
+	class Operation {
 
 		public Action Action;
 		public int StartInOld;
@@ -617,11 +617,11 @@ public class Diff {
 		}
 	}
 
-	public static enum Mode {
+	static enum Mode {
 		character, tag, whitespace,
 	}
 
-	public static enum Action {
+	static enum Action {
 		equal, delete, insert, none, replace
 	}
 

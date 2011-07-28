@@ -67,7 +67,7 @@ public class DiffTest {
 	public static class TestDiff {
 		private String result;
 		public void diff(String a, String b) {
-			result = new Diff(a, b).Build();
+			result = new Diff(a, b).build();
 		}
 		public void shouldEqual(String expected) {
 			assertEquals("should equal", expected, result);

@@ -48,7 +48,7 @@ public class Main {
 		} catch (URISyntaxException e) {
 			throw new RuntimeException(e);
 		}
-		String results = new Diff(oldText, newText).Build();
+		String results = new Diff(oldText, newText).build();
 		System.out.print(results);
 	}
 	
