@@ -281,6 +281,13 @@ This HTML Diff implementation is a Java port of the C# implementation found here
       <version>4.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+    	<groupId>commons-lang</groupId>
+    	<artifactId>commons-lang</artifactId>
+    	<version>2.5</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+    </dependency>
   </dependencies>
   
 </project>
