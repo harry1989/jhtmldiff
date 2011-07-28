@@ -156,7 +156,7 @@ This HTML Diff implementation is a Java port of the C# implementation found here
                 <artifactId>maven-license-plugin</artifactId>
                 <configuration>
                     <basedir>${basedir}</basedir>
-                    <header>${basedir}/src/etc/header.txt</header>
+                    <header>${basedir}/LICENSE</header>
                     <quiet>false</quiet>
                     <failIfMissing>true</failIfMissing>
                     <aggregate>false</aggregate>
@@ -178,7 +178,7 @@ This HTML Diff implementation is a Java port of the C# implementation found here
                     <useDefaultMapping>true</useDefaultMapping>
                     <properties>
                         <name>the original author or authors</name>
-                        <year>2010</year>
+                        <year>2011</year>
                     </properties>
                     <encoding>UTF-8</encoding>
                 </configuration>
@@ -219,6 +219,17 @@ This HTML Diff implementation is a Java port of the C# implementation found here
                     </execution>
                 </executions>
             </plugin>
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-jar-plugin</artifactId>
+			  <configuration>
+			    <archive>
+			      <manifest>
+					<mainClass>com.google.code.jhtmldiff.Main</mainClass>
+			      </manifest>
+			    </archive>
+			  </configuration>
+			</plugin>
             <plugin>
                 <groupId>com.googlecode.maven-gcu-plugin</groupId>
                 <artifactId>maven-gcu-plugin</artifactId>
@@ -280,13 +291,6 @@ This HTML Diff implementation is a Java port of the C# implementation found here
       <artifactId>junit</artifactId>
       <version>4.8.1</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-    	<groupId>commons-lang</groupId>
-    	<artifactId>commons-lang</artifactId>
-    	<version>2.5</version>
-    	<type>jar</type>
-    	<scope>compile</scope>
     </dependency>
   </dependencies>
   

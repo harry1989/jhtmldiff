@@ -1,9 +1,5 @@
 package com.google.code.jhtmldiff;
 
-import static java.text.MessageFormat.format;
-import static org.apache.commons.lang.ArrayUtils.contains;
-import static org.apache.commons.lang.StringUtils.join;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,11 +18,10 @@ public class Diff {
 	private String[] specialCaseClosingTags = new String[] { "</strong>", "</b>", "</i>", "</big>", "</small>", "</u>",
 			"</sub>", "</sup>", "</strike>", "</s>" };
 
-	// / <summary>
-	// / Initializes a new instance of the <see cref="Diff"/> class.
-	// / </summary>
-	// / <param name="oldText">The old text.</param>
-	// / <param name="newText">The new text.</param>
+	/**
+	 * @param oldText
+	 * @param newText
+	 */
 	public Diff(String oldText, String newText) {
 		this.oldText = oldText;
 		this.newText = newText;
@@ -34,10 +29,10 @@ public class Diff {
 		this.content = new StringBuilder();
 	}
 
-	// / <summary>
-	// / Builds the HTML diff output
-	// / </summary>
-	// / <returns>HTML diff markup</returns>
+	/**
+	 * Diffs
+	 * @return diff, not null.
+	 */
 	public String Build() {
 		this.SplitInputsToWords();
 
@@ -72,6 +67,37 @@ public class Diff {
 		this.newWords = ConvertHtmlToListOfWords(this.Explode(this.newText));
 	}
 
+	public static boolean contains(Object[] os, Object o) {
+		for (int i = 0; i < os.length; i++) {
+			Object oi = os[i];
+			if (o.equals(oi))
+				return true;
+		}
+		return false;
+	}
+	
+	public static String join(String[] sa, String space) {
+		StringBuilder sb = new StringBuilder();
+		boolean skip = true;
+		for (String s : sa) {
+			if (! skip)
+				sb.append(space);
+			sb.append(s);
+		}
+		return sb.toString();
+	}
+	
+	public static String join(List<String> sa, String space) {
+		StringBuilder sb = new StringBuilder();
+		boolean skip = true;
+		for (String s : sa) {
+			if (! skip)
+				sb.append(space);
+			sb.append(s);
+		}
+		return sb.toString();
+	}	
+	
 	private String[] ConvertHtmlToListOfWords(String[] characterString) {
 		Mode mode = Mode.character;
 		String current_word = "";
@@ -346,7 +372,7 @@ public class Diff {
 	}
 
 	private String WrapText(String text, String tagName, String cssClass) {
-		return format("<"+tagName+ " class=\"" + cssClass + "\">" +text +"</"+tagName +">", tagName, cssClass, text);
+		return "<"+tagName+ " class=\"" + cssClass + "\">" +text +"</"+tagName +">";
 	}
 
 	private String[] ExtractConsecutiveWords(List<String> words, Func<String, Boolean> condition) {
