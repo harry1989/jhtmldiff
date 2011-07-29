@@ -26,9 +26,9 @@ This HTML Diff implementation is a Java port of the C# implementation found here
     <version>5</version>
   </parent>
   <scm>
-    <connection>scm:hg:https://jhtmldiff.code.google.com/hg/</connection>
-    <developerConnection>scm:hg:https://jhtmldiff.code.google.com/hg/</developerConnection>
-    <url>https://jhtmldiff.code.google.com/hg/</url>
+    <connection>scm:hg:https://code.google.com/p/jhtmldiff</connection>
+    <developerConnection>scm:hg:https://code.google.com/p/jhtmldiff</developerConnection>
+    <url>https://code.google.com/p/jhtmldiff</url>
   </scm>
   <inceptionYear>2011</inceptionYear>
     <licenses>
